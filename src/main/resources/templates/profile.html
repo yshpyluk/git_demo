@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Profile page</title>
+    </head>
+    <body>
+        <h1>Profile page: <span th:text="${user.getName()}"/></h1>
+        <table>
+            <tr>
+                <td>UserId:</td>
+                <td th:text="${user.getId()}"></td>
+            </tr>
+            <tr>
+                <td>Login:</td>
+                <td th:text="${user.getLogin()}"></td>
+            </tr>
+            <tr>
+                <td>URL:</td>
+                <td th:text="${user.getUrl()}"></td>
+            </tr>
+            <tr>
+                <td>Created at:</td>
+                <td th:text="${user.getCreated_at()}"></td>
+            </tr>
+            <tr>
+                <td>Updated at:</td>
+                <td th:text="${user.getUpdated_at()}"></td>
+            </tr>
+            <tr>
+                <td># of public repos:</td>
+                <td th:text="${user.getPublic_repos()}"></td>
+            </tr>
+            <tr>
+                <td># of public gists:</td>
+                <td th:text="${user.getPublic_gists()}"></td>
+            </tr>
+        </table>
+    </body>
+</html>
