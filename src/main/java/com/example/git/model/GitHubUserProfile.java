@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.git.model;
 
 import lombok.Getter;
 import lombok.Setter;

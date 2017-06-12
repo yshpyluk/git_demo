@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.git;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
@@ -56,5 +57,17 @@ public class UsersTest {
 		mockMvc.perform(MockMvcRequestBuilders.get("/users/yshpyluk"))
 				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.view().name("profile"));
+	}
+
+	@Test
+	public void testApiExceptionHandling() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/users/api/exception"))
+				.andExpect(status().isBadRequest());
+	}
+
+	@Test
+	public void testUiExceptionHandling() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/users/exception"))
+				.andExpect(MockMvcResultMatchers.view().name("errors/error"));
 	}
 }
